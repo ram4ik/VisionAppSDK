@@ -32,6 +32,36 @@ public class VisionSDK {
         }
     }
     
+    public func getListOfRecognizedText(image: UIImage) -> [String] {
+        
+        var list = [String]()
+        
+        // Get the CGImage on which to perform requests.
+        guard let cgImage = image.cgImage else { return list }
+        
+        // Create a new image-request handler.
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+        
+        // Create a new request to recognize text.
+        let request = VNRecognizeTextRequest { (request, error) in
+            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+            
+            for currentObservation in observations {
+                let topCandidate = currentObservation.topCandidates(1)
+                if let recognizedText = topCandidate.first {
+                    print(recognizedText.string)
+                    list.append(recognizedText.string)
+                }
+            }
+        }
+        
+        request.recognitionLevel = .accurate
+        
+        try? requestHandler.perform([request])
+        
+        return list
+    }
+    
     func recognizeTextHandler(request: VNRequest, error: Error?) {
         guard let observations =
                 request.results as? [VNRecognizedTextObservation] else {
