@@ -11,6 +11,7 @@
 		953A651927EF83A0003C7480 /* VisionAppSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953A650E27EF83A0003C7480 /* VisionAppSDK.framework */; };
 		953A651E27EF83A0003C7480 /* VisionAppSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A651D27EF83A0003C7480 /* VisionAppSDKTests.swift */; };
 		953A651F27EF83A0003C7480 /* VisionAppSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 953A651127EF83A0003C7480 /* VisionAppSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		953A652927EF83FD003C7480 /* VisionSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953A652827EF83FD003C7480 /* VisionSDK.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		953A651227EF83A0003C7480 /* VisionAppSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = VisionAppSDK.docc; sourceTree = "<group>"; };
 		953A651827EF83A0003C7480 /* VisionAppSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionAppSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		953A651D27EF83A0003C7480 /* VisionAppSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionAppSDKTests.swift; sourceTree = "<group>"; };
+		953A652827EF83FD003C7480 /* VisionSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionSDK.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				953A651127EF83A0003C7480 /* VisionAppSDK.h */,
 				953A651227EF83A0003C7480 /* VisionAppSDK.docc */,
+				953A652827EF83FD003C7480 /* VisionSDK.swift */,
 			);
 			path = VisionAppSDK;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953A652927EF83FD003C7480 /* VisionSDK.swift in Sources */,
 				953A651327EF83A0003C7480 /* VisionAppSDK.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +402,7 @@
 		953A652627EF83A0003C7480 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L8W86DZDY2;
@@ -414,6 +419,7 @@
 		953A652727EF83A0003C7480 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L8W86DZDY2;
