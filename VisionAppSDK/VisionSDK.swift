@@ -75,23 +75,35 @@ public class VisionSDK {
         print("Recognized text: \(recognizedStrings)")
     }
     
-    public func getRecognizedHuman(image: UIImage) {
+    public func getRecognizedHuman(image: UIImage) -> Bool {
+        
+        var poorQuality: Bool = true
         
         // Get the CGImage on which to perform requests.
-        guard let cgImage = image.cgImage else { return }
+        guard let cgImage = image.cgImage else { return true}
         
         // Create a new image-request handler.
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
         
         // Create a new request to regognize huuman
-        let request = VNDetectFaceRectanglesRequest(completionHandler: recognizeHumanHandler)
-        
+        let request = VNDetectFaceRectanglesRequest { request, error in
+            guard let observations = request.results as? [VNFaceObservation] else { return }
+            
+            for observation in observations {
+                let quality = observation.faceCaptureQuality
+
+                poorQuality = quality == 0.0 ? true : false
+            }
+        }
+
         do {
             // Perform the Human recognition request.
             try requestHandler.perform([request])
         } catch {
             print("Unable to perform the requests: \(error).")
         }
+        
+        return poorQuality
     }
     
     func recognizeHumanHandler(request: VNRequest, error: Error?) {
